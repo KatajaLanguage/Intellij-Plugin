@@ -5,7 +5,7 @@
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
-    <name>IntellijPlugin</name>
+    <name>Kataja</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
     <vendor email="KatajaLang@gmail.com">KatajaLang</vendor>
@@ -22,6 +22,11 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-
+        <fileType
+                name="Kataja File"
+                implementationClass="com.github.katajalanguage.intellijplugin.KatajaFileType"
+                fieldName="INSTANCE"
+                language="Kataja"
+                extensions="ktj"/>
     </extensions>
 </idea-plugin>
