@@ -8,7 +8,7 @@
     <name>Kataja</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="KatajaLang@gmail.com">KatajaLang</vendor>
+    <vendor email="KatajaLang@gmail.com">Xaver Weste</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
@@ -33,5 +33,6 @@
                 implementationClass="com.github.katajalanguage.intellijplugin.KatajaSyntaxHighlighterFactory"/>
         <configurationType implementation="com.github.katajalanguage.intellijplugin.run.KatajaRunConfigurationType"/>
         <sdkType implementation="com.github.katajalanguage.intellijplugin.run.KatajaCompiler"/>
+        <moduleBuilder builderClass="com.github.katajalanguage.intellijplugin.module.KatajaModuleBuilder"/>
     </extensions>
 </idea-plugin>
