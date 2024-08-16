@@ -4,6 +4,7 @@ import com.github.katajalanguage.intellijplugin.KatajaIcons
 import com.intellij.openapi.projectRoots.*
 import org.jdom.Element
 import java.io.File
+import java.util.jar.JarFile
 import javax.swing.Icon
 
 class KatajaCompiler: SdkType("Kataja Compiler"){
@@ -42,10 +43,6 @@ class KatajaCompiler: SdkType("Kataja Compiler"){
         return null
     }
 
-    override fun suggestHomePaths(): MutableCollection<String> {
-        return super.suggestHomePaths()
-    }
-
     override fun saveAdditionalData(data: SdkAdditionalData, element: Element) {}
 
     override fun isValidSdkHome(path: String): Boolean{
@@ -55,6 +52,13 @@ class KatajaCompiler: SdkType("Kataja Compiler"){
             val file = folder.listFiles().get(0)
 
             if(file.isFile && file.name.split(".")[file.name.split(".").size - 1] == "jar"){
+                val jar = JarFile(file)
+
+                try {
+                    jar.getJarEntry("com/github/ktj/compiler/Compiler.class")
+                }catch(e: Exception){
+                    return false
+                }
                 return true
             }
         }
