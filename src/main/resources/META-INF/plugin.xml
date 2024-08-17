@@ -32,6 +32,7 @@
                 language="Kataja"
                 implementationClass="com.github.katajalanguage.intellijplugin.lexer.KatajaSyntaxHighlighterFactory"/>
         <moduleBuilder builderClass="com.github.katajalanguage.intellijplugin.module.KatajaModuleBuilder"/>
+        <projectViewNodeDecorator implementation="com.github.katajalanguage.intellijplugin.file.KatajaProjectViewNodeDecorator"/>
 
         <configurationType implementation="com.github.katajalanguage.intellijplugin.run.KatajaRunConfigurationType"/>
         <sdkType implementation="com.github.katajalanguage.intellijplugin.run.KatajaCompiler"/>

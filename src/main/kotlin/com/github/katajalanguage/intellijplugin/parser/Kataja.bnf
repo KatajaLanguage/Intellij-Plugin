@@ -1,0 +1,14 @@
+{
+  parserClass="com.github.katajalanguage.intellijplugin.parser.Parser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="Kataja"
+  psiImplClassSuffix="Impl"
+  psiPackage="com.github.katajalanguage.intellijplugin.psi"
+  psiImplPackage="com.github.katajalanguage.intellijplugin.psi.impl"
+
+  elementTypeHolderClass="com.github.katajalanguage.intellijplugin.psi.KatajaTypes"
+  elementTypeClass="com.github.katajalanguage.intellijplugin.parser.KatajaElementType"
+  tokenTypeClass="com.github.katajalanguage.intellijplugin.lexer.KatajaTokenType"
+}
