@@ -1,5 +1,6 @@
-package com.github.katajalanguage.intellijplugin
+package com.github.katajalanguage.intellijplugin.lexer
 
+import com.github.katajalanguage.intellijplugin.language.KatajaLanguage
 import com.intellij.psi.tree.IElementType
 
 object KatajaTokenTypes {

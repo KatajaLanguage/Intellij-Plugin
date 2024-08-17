@@ -1,4 +1,4 @@
-package com.github.katajalanguage.intellijplugin
+package com.github.katajalanguage.intellijplugin.lexer
 
 import com.intellij.lexer.Lexer
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors

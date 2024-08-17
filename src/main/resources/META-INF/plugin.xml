@@ -8,7 +8,7 @@
     <name>Kataja</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="KatajaLang@gmail.com">Xaver Weste</vendor>
+    <vendor email="KatajaLang@gmail.com" url="https://github.com/KatajaLanguage">Kataja Lang</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
@@ -24,15 +24,16 @@
     <extensions defaultExtensionNs="com.intellij">
         <fileType
                 name="Kataja File"
-                implementationClass="com.github.katajalanguage.intellijplugin.KatajaFileType"
+                implementationClass="com.github.katajalanguage.intellijplugin.language.KatajaFileType"
                 fieldName="INSTANCE"
                 language="Kataja"
                 extensions="ktj"/>
         <lang.syntaxHighlighterFactory
                 language="Kataja"
-                implementationClass="com.github.katajalanguage.intellijplugin.KatajaSyntaxHighlighterFactory"/>
+                implementationClass="com.github.katajalanguage.intellijplugin.lexer.KatajaSyntaxHighlighterFactory"/>
+        <moduleBuilder builderClass="com.github.katajalanguage.intellijplugin.module.KatajaModuleBuilder"/>
+
         <configurationType implementation="com.github.katajalanguage.intellijplugin.run.KatajaRunConfigurationType"/>
         <sdkType implementation="com.github.katajalanguage.intellijplugin.run.KatajaCompiler"/>
-        <moduleBuilder builderClass="com.github.katajalanguage.intellijplugin.module.KatajaModuleBuilder"/>
     </extensions>
 </idea-plugin>

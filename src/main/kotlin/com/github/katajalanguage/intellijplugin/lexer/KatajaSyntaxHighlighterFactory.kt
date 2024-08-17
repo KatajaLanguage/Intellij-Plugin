@@ -1,4 +1,4 @@
-package com.github.katajalanguage.intellijplugin
+package com.github.katajalanguage.intellijplugin.lexer
 
 import com.intellij.openapi.fileTypes.SyntaxHighlighter
 import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory

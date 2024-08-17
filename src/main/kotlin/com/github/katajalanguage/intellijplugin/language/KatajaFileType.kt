@@ -1,4 +1,4 @@
-package com.github.katajalanguage.intellijplugin
+package com.github.katajalanguage.intellijplugin.language
 
 import com.intellij.openapi.fileTypes.LanguageFileType
 import javax.swing.Icon

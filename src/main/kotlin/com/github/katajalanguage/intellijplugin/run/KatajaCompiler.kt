@@ -1,6 +1,6 @@
 package com.github.katajalanguage.intellijplugin.run
 
-import com.github.katajalanguage.intellijplugin.KatajaIcons
+import com.github.katajalanguage.intellijplugin.language.KatajaIcons
 import com.intellij.openapi.projectRoots.*
 import org.jdom.Element
 import java.io.File

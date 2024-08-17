@@ -5,7 +5,7 @@ import javax.swing.JComponent
 import javax.swing.JLabel
 import javax.swing.JPanel
 
-class KatajaSettingsEditor: SettingsEditor<KatajaRunConfiguration>() {
+class KtjSettingsEditor: SettingsEditor<KatajaRunConfiguration>() {
 
     private val panel: JPanel
 
