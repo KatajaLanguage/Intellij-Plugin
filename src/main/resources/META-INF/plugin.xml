@@ -31,9 +31,6 @@
         <lang.syntaxHighlighterFactory
                 language="Kataja"
                 implementationClass="com.github.katajalanguage.intellijplugin.lexer.KatajaSyntaxHighlighterFactory"/>
-        <lang.parserDefinition
-                language="Kataja"
-                implementationClass="com.github.katajalanguage.intellijplugin.parser.KatajaParserDefinition"/>
         <projectViewNodeDecorator implementation="com.github.katajalanguage.intellijplugin.file.KatajaProjectViewNodeDecorator"/>
         <sdkType implementation="com.github.katajalanguage.intellijplugin.run.KatajaCompiler"/>
 
