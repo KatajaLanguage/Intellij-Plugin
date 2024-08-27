@@ -34,10 +34,21 @@
         <lang.parserDefinition
                 language="Kataja"
                 implementationClass="com.github.katajalanguage.intellijplugin.parser.KatajaParserDefinition"/>
-        <moduleBuilder builderClass="com.github.katajalanguage.intellijplugin.module.KatajaModuleBuilder"/>
         <projectViewNodeDecorator implementation="com.github.katajalanguage.intellijplugin.file.KatajaProjectViewNodeDecorator"/>
+        <sdkType implementation="com.github.katajalanguage.intellijplugin.run.KatajaCompiler"/>
 
         <configurationType implementation="com.github.katajalanguage.intellijplugin.run.KatajaRunConfigurationType"/>
-        <sdkType implementation="com.github.katajalanguage.intellijplugin.run.KatajaCompiler"/>
     </extensions>
+
+    <actions>
+        <!-- Run File Options -->
+        <action id="Kataja.RunAction" class="com.github.katajalanguage.intellijplugin.run.KatajaRunAction"
+                text="Run File" description="Run File"
+                icon="AllIcons.RunConfigurations.TestState.Run">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+        <action id="Kataja.PostRunSeparator" class="com.intellij.openapi.actionSystem.Separator">
+            <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="Kataja.RunAction"/>
+        </action>
+    </actions>
 </idea-plugin>

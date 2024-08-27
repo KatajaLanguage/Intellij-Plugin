@@ -1,22 +1,28 @@
 package com.github.katajalanguage.intellijplugin.run
 
+import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory
 import com.intellij.openapi.options.SettingsEditor
-import javax.swing.JComponent
-import javax.swing.JLabel
-import javax.swing.JPanel
+import com.intellij.openapi.ui.TextFieldWithBrowseButton
+import com.intellij.util.ui.FormBuilder
+import javax.swing.*
 
 class KtjSettingsEditor: SettingsEditor<KatajaRunConfiguration>() {
 
     private val panel: JPanel
+    private val mainClassField = TextFieldWithBrowseButton()
 
     init{
-        panel = JPanel()
-        panel.add(JLabel("test"))
+        mainClassField.addBrowseFolderListener("Select Main Class", null, null, FileChooserDescriptorFactory.createSingleFileDescriptor())
+        panel = FormBuilder.createFormBuilder().addLabeledComponent("Main Class", mainClassField).panel
     }
 
-    override fun resetEditorFrom(configuration: KatajaRunConfiguration){}
+    override fun resetEditorFrom(configuration: KatajaRunConfiguration) {
+        mainClassField.text = configuration.getOptions().getMainClass().toString()
+    }
 
-    override fun applyEditorTo(editor: KatajaRunConfiguration){}
+    override fun applyEditorTo(configuration: KatajaRunConfiguration) {
+        configuration.options.setMainClas(mainClassField.text)
+    }
 
     override fun createEditor(): JComponent = panel
 }

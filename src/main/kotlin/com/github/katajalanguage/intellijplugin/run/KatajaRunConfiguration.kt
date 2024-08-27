@@ -10,4 +10,8 @@ class KatajaRunConfiguration(project: Project, factory: ConfigurationFactory, na
     override fun getState(executor: Executor, environment: ExecutionEnvironment): RunProfileState = KatajaCommandLineState(environment)
 
     override fun getConfigurationEditor(): SettingsEditor<out RunConfiguration> = KtjSettingsEditor()
+
+    public override fun getOptions(): KatajaRunConfigurationOptions {
+        return super.getOptions() as KatajaRunConfigurationOptions
+    }
 }
