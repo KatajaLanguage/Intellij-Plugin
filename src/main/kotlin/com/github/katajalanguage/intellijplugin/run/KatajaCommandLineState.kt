@@ -19,7 +19,7 @@ class KatajaCommandLineState(private val environment: ExecutionEnvironment): Com
         val sdk = ProjectRootManager.getInstance(environment.project).projectSdk?: throw RuntimeException("No Compiler found")
         if(sdk.sdkType !is KatajaCompiler) throw RuntimeException("Expected Kataja Compiler")
         var sdkHomePath = sdk.homePath ?: throw RuntimeException("Compiler home path not found")
-        sdkHomePath = (sdkHomePath + "\\" + File(sdkHomePath).listFiles()?.get(0)?.name)
+        sdkHomePath = (sdkHomePath + "/" + File(sdkHomePath).listFiles()?.get(0)?.name)
 
         val commandLine = GeneralCommandLine("java").withParameters("-jar").withParameters(sdkHomePath).withParameters("-q").withParameters("-o").withParameters(CompilerProjectExtension.getInstance(environment.project)?.compilerOutputUrl!!.substring(7)).withParameters("-c")
 
