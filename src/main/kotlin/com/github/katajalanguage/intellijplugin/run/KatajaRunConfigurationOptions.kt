@@ -4,13 +4,13 @@ import com.intellij.execution.configurations.RunConfigurationOptions
 
 class KatajaRunConfigurationOptions: RunConfigurationOptions() {
 
-    val mainClass = string("").provideDelegate(this, "mainClass")
+    private val mainClass = string("").provideDelegate(this, "mainClass")
 
     fun getMainClass(): String? {
         return mainClass.getValue(this)
     }
 
-    fun setMainClas(mainClassName: String) {
+    fun setMainClass(mainClassName: String) {
         mainClass.setValue(this, mainClassName)
     }
 }

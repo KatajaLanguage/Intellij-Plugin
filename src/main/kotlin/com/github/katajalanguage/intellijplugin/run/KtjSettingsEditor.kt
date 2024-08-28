@@ -13,15 +13,15 @@ class KtjSettingsEditor: SettingsEditor<KatajaRunConfiguration>() {
 
     init{
         mainClassField.addBrowseFolderListener("Select Main Class", null, null, FileChooserDescriptorFactory.createSingleFileDescriptor())
-        panel = FormBuilder.createFormBuilder().addLabeledComponent("Main Class", mainClassField).panel
+        panel = FormBuilder.createFormBuilder().addLabeledComponent("Main class", mainClassField).panel
     }
 
     override fun resetEditorFrom(configuration: KatajaRunConfiguration) {
-        mainClassField.text = configuration.getOptions().getMainClass().toString()
+        mainClassField.text = configuration.getMainClass()!!
     }
 
     override fun applyEditorTo(configuration: KatajaRunConfiguration) {
-        configuration.options.setMainClas(mainClassField.text)
+        configuration.setMainClass(mainClassField.text)
     }
 
     override fun createEditor(): JComponent = panel

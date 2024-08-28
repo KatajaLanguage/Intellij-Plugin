@@ -21,7 +21,7 @@ class KatajaRunAction: AnAction() {
         val runManager = RunManager.getInstance(project)
         val configuration = runManager.createConfiguration(file.name, KatajaConfigurationFactory(KatajaRunConfigurationType()))
 
-        (configuration.configuration as KatajaRunConfiguration).options.setMainClas(file.path.substring(0, file.path.length - 4))
+        (configuration.configuration as KatajaRunConfiguration).options.setMainClass(file.path.substring(0, file.path.length - 4))
 
         runManager.addConfiguration(configuration)
         runManager.selectedConfiguration = runManager.findSettings(configuration.configuration)

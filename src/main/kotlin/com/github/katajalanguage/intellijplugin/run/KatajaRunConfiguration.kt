@@ -7,11 +7,17 @@ import com.intellij.openapi.options.SettingsEditor
 import com.intellij.openapi.project.Project
 
 class KatajaRunConfiguration(project: Project, factory: ConfigurationFactory, name:String): RunConfigurationBase<KatajaRunConfiguration>(project, factory, name) {
+
     override fun getState(executor: Executor, environment: ExecutionEnvironment): RunProfileState = KatajaCommandLineState(environment)
 
     override fun getConfigurationEditor(): SettingsEditor<out RunConfiguration> = KtjSettingsEditor()
 
     public override fun getOptions(): KatajaRunConfigurationOptions {
         return super.getOptions() as KatajaRunConfigurationOptions
+    }
+
+    fun getMainClass(): String? = options.getMainClass()
+    fun setMainClass(main: String){
+        options.setMainClass(main)
     }
 }
