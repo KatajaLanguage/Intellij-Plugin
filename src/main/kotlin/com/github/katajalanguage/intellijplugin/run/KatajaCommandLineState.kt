@@ -25,7 +25,7 @@ class KatajaCommandLineState(private val environment: ExecutionEnvironment): Com
 
         for(module in ModuleManager.getInstance(environment.project).modules) for(srcFolder in ModuleRootManager.getInstance(module).sourceRoots) commandLine.withParameters(srcFolder.path)
 
-        if((environment.runProfile as KatajaRunConfiguration).options.getMainClass() == null) throw RuntimeException("Main Class is not specified")
+        if((environment.runProfile as KatajaRunConfiguration).options.getMainClass() == null || (environment.runProfile as KatajaRunConfiguration).options.getMainClass()!!.isEmpty()) throw RuntimeException("Main Class is not specified")
 
         commandLine.withParameters("-e").withParameters((environment.runProfile as KatajaRunConfiguration).options.getMainClass()!!)
 

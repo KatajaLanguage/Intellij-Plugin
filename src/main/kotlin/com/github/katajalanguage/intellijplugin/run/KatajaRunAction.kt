@@ -21,11 +21,11 @@ class KatajaRunAction: AnAction() {
         val runManager = RunManager.getInstance(project)
         val configuration = runManager.createConfiguration(file.name, KatajaConfigurationFactory(KatajaRunConfigurationType()))
 
-        (configuration.configuration as KatajaRunConfiguration).options.setMainClas(file.path)
+        (configuration.configuration as KatajaRunConfiguration).options.setMainClas(file.path.substring(0, file.path.length - 4))
 
         runManager.addConfiguration(configuration)
         runManager.selectedConfiguration = runManager.findSettings(configuration.configuration)
-        ProgramRunner.getRunner(DefaultRunExecutor.EXECUTOR_ID, configuration.configuration)?.execute(ExecutionEnvironment())
+        ProgramRunner.getRunner(DefaultRunExecutor.EXECUTOR_ID, configuration.configuration)?.execute(ExecutionEnvironment(DefaultRunExecutor.getRunExecutorInstance() ,ProgramRunner.getRunner(DefaultRunExecutor.EXECUTOR_ID, configuration.configuration)!!, configuration, project))
     }
 
     override fun update(event: AnActionEvent) {
